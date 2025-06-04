@@ -1,10 +1,17 @@
 ---
-title: "Final"
-format: html
+title: "Final - ENVS 193DS"
+author: "Eliana Shandalov"
+date: "June 3, 2025"
+format:
+  html:
+    toc: true # use this to display a table of contents
+execute:
+  message: false # use this to make sure messages don't show up
+  warning: false # use this to make sure warnings don't show up
 ---
 
 Link to GitHub repo: https://github.com/eliana427/ENVS-193DS_spring-2025_final.git
-```{r}
+```{r message=FALSE, echo=FALSE}
 library(tidyverse)
 library(janitor)
 sst <- read_csv("SST_update2023.csv")
