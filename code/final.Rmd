@@ -3,3 +3,41 @@ title: "final"
 output: html_document
 ---
 
+Link to GitHub repo: https://github.com/eliana427/ENVS-193DS_spring-2025_final.git
+```{r}
+library(tidyverse)
+library(janitor)
+sst <- read_csv("data/SST_update2023.csv")
+```
+
+Problem 1. Research writing
+
+a. Transparent statistical methods
+
+In part one, my co-worker likely did a Pearson correlation (if each variable is normally distributed), but if they're not normally distributed than the test was likely a Spearman rank correlation. In part 2, my co-worker likely did a one way ANOVA test (for normally distributed variables) or a Kurskal-Wallis test (data is not normally distributed).
+
+b.  More information needed
+
+The effect size (in this case, $\eta^2$) would be helpful because it gives information about how big the difference is between groups, specifically how much the type of source impacts the variation of average nitrogen load. A post hoc Tukey's HSD test would be helpful because it provides information about which groups in particular differ in nitrogen load by comparing the pairs of sources directly.
+
+c. Suggestions for rewriting
+
+The average load of nitrogen (kg/year) differed a lot between tested sources (urban land, atmospheric deposition, fertilizer, waste water treatment, and grasslands) (one way ANOVA...). Effect size (). Tukey's HSD (). **finsih later**
+
+
+Problem 2. Data visualization
+
+```{r}
+sst_clean <- sst |> 
+  clean_names() |> 
+  group_by(date) |> 
+  summarize(
+    mean_sst = mean(mean_monthly_sst, na.rm = TRUE),
+    sd_sst = sd(mean_monthly_sst, na.rm = TRUE),
+    n = n()
+  )
+
+sst_clean
+
+```
+
