@@ -1,0 +1,104 @@
+---
+title: "Final"
+format: html
+---
+
+Link to GitHub repo: https://github.com/eliana427/ENVS-193DS_spring-2025_final.git
+```{r}
+library(tidyverse)
+library(janitor)
+sst <- read_csv("SST_update2023.csv")
+```
+
+Problem 1. Research writing
+
+a. Transparent statistical methods
+
+In part one, my co-worker likely did a Pearson correlation (if each variable is normally distributed), but if they're not normally distributed than the test was likely a Spearman rank correlation. In part 2, my co-worker likely did a one way ANOVA test (for normally distributed variable and sources have equal variances) or a Kurskal-Wallis test (data is not normally distributed).
+
+b.  More information needed
+
+The effect size (in this case, $\eta^2$) would be helpful because it gives information about how big the difference is between groups, specifically how much the type of source impacts the variation of average nitrogen load. A post hoc Tukey's HSD test would be helpful because it provides information about which groups in particular differ in nitrogen load by comparing the pairs of sources directly.
+
+c. Suggestions for rewriting
+
+We found a large difference ($\eta^2$ = effect size) in average load of nitrogen (kg/year) between tested sources (urban land, atmospheric deposition, fertilizer, waste water treatment, and grasslands) (one-way ANOVA, F(4, df within groups) = F value, p = 0.03, $\alpha$ = significance level)). A post hoc comparison using Tukey's HSD indicated that there were differences in the mean load of nitrogen between two of the of sources (amount kg/year less, x% CI: [lower bound, upper bound]) and another two of the of sources (amount less kg/year, x% CI: [lower bound, upper bound]).
+
+
+Problem 2. Data visualization
+
+a. Cleaning and summarizing
+```{r}
+library(lubridate)
+
+sst_clean <- sst |> # store sst as new object called sst_clean
+  clean_names() # make all names lowercase, and if there were spaces then change to underscores
+
+colnames(sst_clean) # shows names of columns in data frame
+
+sst_clean <- sst_clean |> # assigns sst_clean to itself to use in next functions
+  mutate(
+    date = as.Date(date), # make sure that R reads this column as a date that can be separated
+    month = month(date, label = TRUE, abbr = FALSE), # separate out months from date column
+    year_extracted = year(date) # extract the year from the data set
+  ) |> 
+  filter(year_extracted >= 2018) |> # filter the data set to only include dates 2018 and later
+  mutate(year = factor(year_extracted), # read year as a factor
+    date = NULL, # remove date column from displayed data in console
+    site = NULL, # remove site column from displayed data in console
+    latitude = NULL, # remove latitude column from displayed data in console
+    longitude = NULL # remove longitude column from displayed data in console
+  ) |> 
+  group_by(year, month) |> # group by year and month
+  summarize(mean_monthly_sst = mean(temp, na.rm = TRUE)) |> # calculate mean temperature per group
+  ungroup() |>  # removes groupings back to original data frame
+
+# rename all months in month column to abbreviations  
+mutate(month = case_when(
+  month == "January" ~ "Jan",
+  month == "February" ~ "Feb",
+  month == "March" ~ "Mar",
+  month == "April" ~ "Apr",
+  month == "May" ~ "May",
+  month == "June" ~ "Jun",
+  month == "July" ~ "Jul",
+  month == "August" ~ "Aug",
+  month == "September" ~ "Sep",
+  month == "October" ~ "Oct",
+  month == "November" ~ "Nov",
+  month == "December" ~ "Dec"
+)) |> 
+  
+mutate(month = factor(month, levels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+ordered = TRUE)) # sort months in order when they appear on graph
+
+slice_sample(sst_clean, n = 5) # display five random rows of the data set 
+
+str(sst_clean) # show structure of the data set
+```
+
+b. Visualize the data
+
+```{r}
+sst_plot <- sst_clean # creating new object for plot
+
+ggplot(data = sst_clean, # use data from sst_clean
+       aes(x = month, # x axis is month
+           y = mean_monthly_sst, # y axis is mean_monthly_sst
+           color = year, # color will be based on year
+           group = year)) + # data will be grouped by year+ 
+geom_line() + # create a line plot
+  scale_color_manual(values= c("#2E004F", "#4B0082", "#6A0DAD", "#8A2BE2", "#A24AC3", "#BF65D9")) + # colors will be a gradient with 2018 being the darkest and 2023 being the lightest
+geom_point(size = 1.1) + # add points to the lines of size 1.1
+  labs(x = "Month", # rename the x axis
+       y = "Mean monthly sea surface temperature (°C)", # rename the y axis
+       color = "Year") + # rename the legend which is based on color
+  theme(panel.grid = element_blank(), # remove the grid lines
+        panel.background = element_blank(), # make panel background blank
+        panel.border = element_rect(color = "grey24", fill = NA, linewidth = 0.5), # add border to plot of width 0.5 but don't fill it in
+        axis.ticks.length.x = unit (1, "mm"), # make axis ticks on x axis 1 mm
+        axis.ticks.length.y = unit (1, "mm"), # make axis ticks on y axis 1 mm
+        legend.position = "inside", # place legend inside of plot
+        legend.position.inside = c(0.15, 0.7)) # legend will be positioned at these coordinates
+
+```
