@@ -1,6 +1,8 @@
 ---
 title: "final"
 output: html_document
+editor_options: 
+  chunk_output_type: inline
 ---
 
 Link to GitHub repo: https://github.com/eliana427/ENVS-193DS_spring-2025_final.git
