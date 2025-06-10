@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Eliana Shandalov">
+<meta name="dcterms.date" content="2025-06-03">
+
+<title>Final - ENVS 193DS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Final-2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Final-2_files/libs/quarto-html/quarto.js"></script>
+<script src="Final-2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Final-2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Final-2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Final-2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Final-2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Final-2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Final-2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Final-2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#problem-1.-research-writing" id="toc-problem-1.-research-writing" class="nav-link active" data-scroll-target="#problem-1.-research-writing">Problem 1. Research writing</a>
+  <ul class="collapse">
+  <li><a href="#a.-transparent-statistical-methods" id="toc-a.-transparent-statistical-methods" class="nav-link" data-scroll-target="#a.-transparent-statistical-methods">a. Transparent statistical methods</a></li>
+  <li><a href="#b.-more-information-needed" id="toc-b.-more-information-needed" class="nav-link" data-scroll-target="#b.-more-information-needed">b. More information needed</a></li>
+  <li><a href="#c.-suggestions-for-rewriting" id="toc-c.-suggestions-for-rewriting" class="nav-link" data-scroll-target="#c.-suggestions-for-rewriting">c.&nbsp;Suggestions for rewriting</a></li>
+  </ul></li>
+  <li><a href="#problem-2.-data-visualization" id="toc-problem-2.-data-visualization" class="nav-link" data-scroll-target="#problem-2.-data-visualization">Problem 2. Data visualization</a>
+  <ul class="collapse">
+  <li><a href="#a.-cleaning-and-summarizing" id="toc-a.-cleaning-and-summarizing" class="nav-link" data-scroll-target="#a.-cleaning-and-summarizing">a. Cleaning and summarizing</a></li>
+  <li><a href="#b.-visualize-the-data" id="toc-b.-visualize-the-data" class="nav-link" data-scroll-target="#b.-visualize-the-data">b. Visualize the data</a></li>
+  </ul></li>
+  <li><a href="#problem-3.-data-analysis" id="toc-problem-3.-data-analysis" class="nav-link" data-scroll-target="#problem-3.-data-analysis">Problem 3. Data analysis</a>
+  <ul class="collapse">
+  <li><a href="#a.-response-variable" id="toc-a.-response-variable" class="nav-link" data-scroll-target="#a.-response-variable">a. Response variable</a></li>
+  <li><a href="#b.-purpose-of-study" id="toc-b.-purpose-of-study" class="nav-link" data-scroll-target="#b.-purpose-of-study">b. Purpose of study</a></li>
+  <li><a href="#c.-difference-in-seasons" id="toc-c.-difference-in-seasons" class="nav-link" data-scroll-target="#c.-difference-in-seasons">c.&nbsp;Difference in “seasons”</a></li>
+  <li><a href="#d.-table-of-models" id="toc-d.-table-of-models" class="nav-link" data-scroll-target="#d.-table-of-models">d.&nbsp;Table of models</a></li>
+  <li><a href="#e.-run-the-models" id="toc-e.-run-the-models" class="nav-link" data-scroll-target="#e.-run-the-models">e. Run the models</a></li>
+  <li><a href="#f.-check-the-diagnostics" id="toc-f.-check-the-diagnostics" class="nav-link" data-scroll-target="#f.-check-the-diagnostics">f.&nbsp;Check the diagnostics</a></li>
+  <li><a href="#g.-select-the-best-model" id="toc-g.-select-the-best-model" class="nav-link" data-scroll-target="#g.-select-the-best-model">g. Select the best model</a></li>
+  <li><a href="#h.-visualize-the-model-predictions" id="toc-h.-visualize-the-model-predictions" class="nav-link" data-scroll-target="#h.-visualize-the-model-predictions">h. Visualize the model predictions</a></li>
+  <li><a href="#i.-write-a-caption-for-your-figure" id="toc-i.-write-a-caption-for-your-figure" class="nav-link" data-scroll-target="#i.-write-a-caption-for-your-figure">i. Write a caption for your figure</a></li>
+  <li><a href="#j.-calculate-model-predictions" id="toc-j.-calculate-model-predictions" class="nav-link" data-scroll-target="#j.-calculate-model-predictions">j. Calculate model predictions</a></li>
+  <li><a href="#k.-interpret-your-results" id="toc-k.-interpret-your-results" class="nav-link" data-scroll-target="#k.-interpret-your-results">k. Interpret your results</a></li>
+  </ul></li>
+  <li><a href="#problem-4.-affective-and-exploratory-visualizations" id="toc-problem-4.-affective-and-exploratory-visualizations" class="nav-link" data-scroll-target="#problem-4.-affective-and-exploratory-visualizations">Problem 4. Affective and exploratory visualizations</a>
+  <ul class="collapse">
+  <li><a href="#a.-comparing-visualizations" id="toc-a.-comparing-visualizations" class="nav-link" data-scroll-target="#a.-comparing-visualizations">a. Comparing visualizations</a></li>
+  <li><a href="#b.-sharing-your-affective-visualization" id="toc-b.-sharing-your-affective-visualization" class="nav-link" data-scroll-target="#b.-sharing-your-affective-visualization">b. Sharing your affective visualization</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final - ENVS 193DS</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Eliana Shandalov </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 3, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Link to GitHub repo: https://github.com/eliana427/ENVS-193DS_spring-2025_final.git</p>
+<section id="problem-1.-research-writing" class="level1">
+<h1>Problem 1. Research writing</h1>
+<section id="a.-transparent-statistical-methods" class="level2">
+<h2 class="anchored" data-anchor-id="a.-transparent-statistical-methods">a. Transparent statistical methods</h2>
+<p>In part one, my co-worker likely did a Pearson correlation (if each variable is normally distributed), but if they’re not normally distributed than the test was likely a Spearman rank correlation. In part 2, my co-worker likely did a one way ANOVA test (for normally distributed variable and sources have equal variances) or a Kurskal-Wallis test (data is not normally distributed).</p>
+</section>
+<section id="b.-more-information-needed" class="level2">
+<h2 class="anchored" data-anchor-id="b.-more-information-needed">b. More information needed</h2>
+<p>The effect size (in this case, <span class="math inline">\(\eta^2\)</span>) would be helpful because it gives information about how big the difference is between groups, specifically how much the type of source impacts the variation of average nitrogen load. A post hoc Tukey’s HSD test would be helpful because it provides information about which groups in particular differ in nitrogen load by comparing the pairs of sources directly.</p>
+</section>
+<section id="c.-suggestions-for-rewriting" class="level2">
+<h2 class="anchored" data-anchor-id="c.-suggestions-for-rewriting">c.&nbsp;Suggestions for rewriting</h2>
+<p>We found a large difference (<span class="math inline">\(\eta^2\)</span> = effect size) in average load of nitrogen (kg/year) between tested sources (urban land, atmospheric deposition, fertilizer, waste water treatment, and grasslands) (one-way ANOVA, F(4, df within groups) = F value, p = 0.03, <span class="math inline">\(\alpha\)</span> = significance level)). A post hoc comparison using Tukey’s HSD indicated that there were differences in the mean load of nitrogen between two of the of sources (amount kg/year less, x% CI: [lower bound, upper bound]) and another two of the of sources (amount less kg/year, x% CI: [lower bound, upper bound]).</p>
+</section>
+</section>
+<section id="problem-2.-data-visualization" class="level1">
+<h1>Problem 2. Data visualization</h1>
+<section id="a.-cleaning-and-summarizing" class="level2">
+<h2 class="anchored" data-anchor-id="a.-cleaning-and-summarizing">a. Cleaning and summarizing</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sst_clean <span class="ot">&lt;-</span> sst <span class="sc">|&gt;</span> <span class="co"># store sst as new object called sst_clean</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="co"># make all names lowercase, and if there were spaces then change to underscores</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sst_clean <span class="ot">&lt;-</span> sst_clean <span class="sc">|&gt;</span> <span class="co"># assigns sst_clean to itself to use in next functions</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">as.Date</span>(date), <span class="co"># make sure that R reads this column as a date that can be separated</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>), <span class="co"># separate out months from date column</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">year_extracted =</span> <span class="fu">year</span>(date) <span class="co"># extract the year from the data set</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year_extracted <span class="sc">&gt;=</span> <span class="dv">2018</span>) <span class="sc">|&gt;</span> <span class="co"># filter the data set to only include dates 2018 and later</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">factor</span>(year_extracted), <span class="co"># read year as a factor</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="cn">NULL</span>, <span class="co"># remove date column from displayed data in console</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">site =</span> <span class="cn">NULL</span>, <span class="co"># remove site column from displayed data in console</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">latitude =</span> <span class="cn">NULL</span>, <span class="co"># remove latitude column from displayed data in console</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">longitude =</span> <span class="cn">NULL</span> <span class="co"># remove longitude column from displayed data in console</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month) <span class="sc">|&gt;</span> <span class="co"># group by year and month</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_monthly_sst =</span> <span class="fu">mean</span>(temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> <span class="co"># calculate mean temperature per group</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span>  <span class="co"># removes groupings back to original data frame</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># rename all months in month column to abbreviations  </span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"January"</span> <span class="sc">~</span> <span class="st">"Jan"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"February"</span> <span class="sc">~</span> <span class="st">"Feb"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"March"</span> <span class="sc">~</span> <span class="st">"Mar"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"April"</span> <span class="sc">~</span> <span class="st">"Apr"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"May"</span> <span class="sc">~</span> <span class="st">"May"</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"June"</span> <span class="sc">~</span> <span class="st">"Jun"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"July"</span> <span class="sc">~</span> <span class="st">"Jul"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"August"</span> <span class="sc">~</span> <span class="st">"Aug"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"September"</span> <span class="sc">~</span> <span class="st">"Sep"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"October"</span> <span class="sc">~</span> <span class="st">"Oct"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"November"</span> <span class="sc">~</span> <span class="st">"Nov"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  month <span class="sc">==</span> <span class="st">"December"</span> <span class="sc">~</span> <span class="st">"Dec"</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">factor</span>(month, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="co"># sort months in order when they appear on graph</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_sample</span>(sst_clean, <span class="at">n =</span> <span class="dv">5</span>) <span class="co"># display five random rows of the data set </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  year  month mean_monthly_sst
+  &lt;fct&gt; &lt;ord&gt;            &lt;dbl&gt;
+1 2022  Apr               13.3
+2 2020  Feb               14.7
+3 2019  Feb               14.1
+4 2018  Feb               14.3
+5 2018  Jun               15.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sst_clean) <span class="co"># show structure of the data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [72 × 3] (S3: tbl_df/tbl/data.frame)
+ $ year            : Factor w/ 6 levels "2018","2019",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ month           : Ord.factor w/ 12 levels "Jan"&lt;"Feb"&lt;"Mar"&lt;..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ mean_monthly_sst: num [1:72] 15 14.3 13.5 12.8 13.6 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="b.-visualize-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="b.-visualize-the-data">b. Visualize the data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sst_plot <span class="ot">&lt;-</span> sst_clean <span class="co"># creating new object for plot</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sst_clean, <span class="co"># use data from sst_clean</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="co"># x axis is month</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> mean_monthly_sst, <span class="co"># y axis is mean_monthly_sst</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> year, <span class="co"># color will be based on year</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">group =</span> year)) <span class="sc">+</span> <span class="co"># data will be grouped by year+ </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>() <span class="sc">+</span> <span class="co"># create a line plot</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span> <span class="fu">c</span>(<span class="st">"#2E004F"</span>, <span class="st">"#4B0082"</span>, <span class="st">"#6A0DAD"</span>, <span class="st">"#8A2BE2"</span>, <span class="st">"#A24AC3"</span>, <span class="st">"#BF65D9"</span>)) <span class="sc">+</span> <span class="co"># colors will be a gradient with 2018 being the darkest and 2023 being the lightest</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.1</span>) <span class="sc">+</span> <span class="co"># add points to the lines of size 1.1</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Month"</span>, <span class="co"># rename the x axis</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean monthly sea surface temperature (°C)"</span>, <span class="co"># rename the y axis</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Year"</span>) <span class="sc">+</span> <span class="co"># rename the legend which is based on color</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), <span class="co"># remove the grid lines</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># make panel background blank</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"grey24"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>), <span class="co"># add border to plot of width 0.5 but don't fill it in</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span> (<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="co"># make axis ticks on x axis 1 mm</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.length.y =</span> <span class="fu">unit</span> (<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="co"># make axis ticks on y axis 1 mm</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"inside"</span>, <span class="co"># place legend inside of plot</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position.inside =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.7</span>)) <span class="co"># legend will be positioned at these coordinates</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="problem-3.-data-analysis" class="level1">
+<h1>Problem 3. Data analysis</h1>
+<section id="a.-response-variable" class="level2">
+<h2 class="anchored" data-anchor-id="a.-response-variable">a. Response variable</h2>
+<p>The 0’s and 1’s represent if the nest box is occupied or not by a particular species; a 0 means means not occupied by these species, and a 1 means occupied by this species. The “empty” column with a 1 means the box was empty, and with a 0 means it had some species living in it.</p>
+</section>
+<section id="b.-purpose-of-study" class="level2">
+<h2 class="anchored" data-anchor-id="b.-purpose-of-study">b. Purpose of study</h2>
+<p>Swift Parrots are far more selective about where they nest compared to Tree Martins and Common Starlings, so the nest boxes are designed for them but are at risk of occupancy of these competitors. Swift Parrots are subject to a higher risk of extinction because of human impacts on forests, more so than Tree Martins and Common Starlings because they are less selective than Swift Parrots.</p>
+</section>
+<section id="c.-difference-in-seasons" class="level2">
+<h2 class="anchored" data-anchor-id="c.-difference-in-seasons">c.&nbsp;Difference in “seasons”</h2>
+<p>The authors of the study explain that the “seasons” are the years 2016 and 2019, which were important to test how effective the use of permanent boxes are. In 2016, the researchers put new nest boxes at a breeding sites of Swift Parrots, where a mast tree flowering event had occurred and the boxes remained in place when in 2019 another mast tree flowering event occurred.</p>
+</section>
+<section id="d.-table-of-models" class="level2">
+<h2 class="anchored" data-anchor-id="d.-table-of-models">d.&nbsp;Table of models</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 30%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Model number</th>
+<th style="text-align: center;">Season</th>
+<th style="text-align: center;">Distance to Forest Edge</th>
+<th>Model Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>no predictors (null model)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td>all predictors (saturated model)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td>distance to forest edge</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td>season</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e.-run-the-models" class="level2">
+<h2 class="anchored" data-anchor-id="e.-run-the-models">e. Run the models</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model 1, null model: where any species is present</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sp <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># formula for null model</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> nest_boxes_clean, <span class="co"># use nest_boxes_clean data frame</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="co"># this is a binomial distribution</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># model 2, saturated model: where edge distance and season impact whether any species is present</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sp <span class="sc">~</span> edge_distance <span class="sc">+</span> season, <span class="co"># formula for saturated model</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> nest_boxes_clean, <span class="co"># use nest_boxes_clean data frame</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="co"># this is a binomial distribution</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># model 3, one predictor: where edge distance impacts if swift parrots are present</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sp <span class="sc">~</span> edge_distance, <span class="co"># formula for using edge_distance as only predictor</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> nest_boxes_clean, <span class="co"># use nest_boxes_clean data frame</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="co"># this is a binomial distribution</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># model 4, other predictor: where season impacts if swift parrots are present</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sp <span class="sc">~</span> season, <span class="co"># formula for using season as only predictor</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> nest_boxes_clean, <span class="co"># use nest_boxes_clean data frame</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="co"># this is a binomial distribution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="f.-check-the-diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="f.-check-the-diagnostics">f.&nbsp;Check the diagnostics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show model 1 on simulated residual plot</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">simulateResiduals</span>(model1)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show model 2 on simulated residual plot</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">simulateResiduals</span>(model2)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-2_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show model 3 on simulated residual plot</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">simulateResiduals</span>(model3)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-2_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show model 4 on simulated residual plot</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">simulateResiduals</span>(model4)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-2_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="g.-select-the-best-model" class="level2">
+<h2 class="anchored" data-anchor-id="g.-select-the-best-model">g. Select the best model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run AIC comparison to find out which model is best to represent data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AICc</span>(model1,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     model2,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     model3,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>     model4) <span class="sc">|&gt;</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(AICc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       df     AICc
+model2  3 226.3133
+model3  2 229.6716
+model4  2 236.3744
+model1  1 238.8318</code></pre>
+</div>
+</div>
+<p>The best model as determined by Akaike’s Information Criterion (AIC) is the one that compares if Swift Parrots are present (response variable) depending on distance to forest edge and season (saturated model, all predictor variables included).</p>
+</section>
+<section id="h.-visualize-the-model-predictions" class="level2">
+<h2 class="anchored" data-anchor-id="h.-visualize-the-model-predictions">h. Visualize the model predictions</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model predictions for each model</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># setting parameters, divide the area into a 2x2 grid</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model1, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">main =</span> <span class="st">"Model 1"</span>) <span class="co"># create diagnostic plot for model 1 and title the plot "Model 1"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model2, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">main =</span> <span class="st">"Model 2"</span>) <span class="co"># create diagnostic plot for model 2 and title the plot "Model 2"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model3, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">main =</span> <span class="st">"Model 3"</span>) <span class="co"># create diagnostic plot for model 3 and title the plot "Model 3"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model4, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">main =</span> <span class="st">"Model 4"</span>) <span class="co"># create diagnostic plot for model 4 and title the plot "Model 4"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mod_preds <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(model2, <span class="co"># creating a new object for the predictions of values based on model2</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"edge_distance [7:1072] by = 1"</span>, <span class="st">"season"</span>)) <span class="co"># the prediction will be of a distance from 7 to 1072 meters by 1m increments, and repeat again for season</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mod_preds_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="co"># create a new object for the plot using ggplot</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nest_boxes_clean, <span class="co"># use nest_boxes_clean data frame to add in real observations</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> edge_distance, <span class="co"># x axis will be edge distance</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> sp), <span class="co"># y axis will be presence of swift parrots</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="co"># size will be 3</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="co"># level of see-through the points will be</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co"># make the points blue</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> mod_preds, <span class="co"># </span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> x,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymin =</span> conf.low,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymax =</span> conf.high,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill =</span> group),</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Prediction line from model</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> mod_preds,</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> predicted,</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> group),</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Manual color and fill scale</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2016"</span> <span class="ot">=</span> <span class="st">"orange"</span>, <span class="st">"2019"</span> <span class="ot">=</span> <span class="st">"purple"</span>)) <span class="sc">+</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"2016"</span> <span class="ot">=</span> <span class="st">"orange"</span>, <span class="st">"2019"</span> <span class="ot">=</span> <span class="st">"purple"</span>)) <span class="sc">+</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Y-axis formatting</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Theme adjustments</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"grey24"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>),</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>),</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.length.y =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>)</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Axis labels</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Edge Distance (m)"</span>,</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Presence of Swift Parrots (yes/no)"</span>,</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Season"</span>,</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Season"</span></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>mod_preds_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final-2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="i.-write-a-caption-for-your-figure" class="level2">
+<h2 class="anchored" data-anchor-id="i.-write-a-caption-for-your-figure">i. Write a caption for your figure</h2>
+<p><strong>Figure 1. Swift Parrots tend to occupy more nest boxes that are closer to the forests for seasons 2016 and 2019, and occupied more next boxes in 2016.</strong> Data from ‘A case study of a critically endangered bird’ (Stojanovic, Dejan et al.&nbsp;(2021). Do nest boxes breed the target species or its competitors? A case study of a critically endangered bird [Dataset]. Dryad.). Points (blue) represent if Swift Parrots were present (yes = 1, no = 0) and how far they were from the forest edge (unit) (total n = 227). Colors and the shape around the lines represent the 95% confidence interval (orange: 2016, purple: 2019).</p>
+</section>
+<section id="j.-calculate-model-predictions" class="level2">
+<h2 class="anchored" data-anchor-id="j.-calculate-model-predictions">j. Calculate model predictions</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mod_preds <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(model2,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"edge_distance [0:900] by = 1"</span>, <span class="st">"season"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">distance_to_edge =</span> x,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">season =</span> group)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_preds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> distance_to_edge   predicted         std.error         conf.low      
+ Min.   :  0      Min.   :0.06139   Min.   :0.2262   Min.   :0.02700  
+ 1st Qu.:225      1st Qu.:0.13350   1st Qu.:0.2515   1st Qu.:0.07637  
+ Median :450      Median :0.19745   Median :0.2771   Median :0.12834  
+ Mean   :450      Mean   :0.21719   Mean   :0.2904   Mean   :0.14285  
+ 3rd Qu.:675      3rd Qu.:0.28207   3rd Qu.:0.3181   3rd Qu.:0.18791  
+ Max.   :900      Max.   :0.48064   Max.   :0.4374   Max.   :0.32674  
+   conf.high       season   
+ Min.   :0.1336   2016:901  
+ 1st Qu.:0.2179   2019:901  
+ Median :0.2934             
+ Mean   :0.3162             
+ 3rd Qu.:0.3956             
+ Max.   :0.6383             </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(mod_preds[mod_preds<span class="sc">$</span>distance_to_edge <span class="sc">==</span> <span class="dv">900</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     distance_to_edge  predicted std.error   conf.low conf.high season
+1801              900 0.12478375 0.3926047 0.06195557 0.2353404   2016
+1802              900 0.06139379 0.4374157 0.02700370 0.1335685   2019</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(mod_preds[mod_preds<span class="sc">$</span>distance_to_edge <span class="sc">==</span> <span class="dv">0</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  distance_to_edge predicted std.error  conf.low conf.high season
+1                0 0.4806371 0.3293209 0.3267443 0.6382939   2016
+2                0 0.2980316 0.3205975 0.1846661 0.4431644   2019</code></pre>
+</div>
+</div>
+</section>
+<section id="k.-interpret-your-results" class="level2">
+<h2 class="anchored" data-anchor-id="k.-interpret-your-results">k. Interpret your results</h2>
+<p>As the distance from the forest edge increases (m), the predicted probability of Swift Parrots occupying nest boxes decreased (Figure 1), showing that there is a negative relationship between probability of occupancy and forest edge distance. At the edge of the forest (0 m), the predicted probability of nest box occupancy was 0.48 (95% CI: [0.33, 0.64], <span class="math inline">\(\alpha\)</span> = 0.05) in 2016, and 0.30 (95% CI: [0.18, 0.44], <span class="math inline">\(\alpha\)</span> = 0.05) in 2019, demonstrating how Swift Parrots are more likely to occupy nest boxes near the forest edge, particularly in 2016. At 900 m away from the edge of the forest, the predicted probability of nest box occupancy went down to 0.12 (95% CI: [0.06, 0.24], <span class="math inline">\(\alpha\)</span> = 0.05) in 2016 and to 0.06 (95% CI: [0.03, 0.13], <span class="math inline">\(\alpha\)</span> = 0.05), <span class="math inline">\(\alpha\)</span> = 0.05) in 2019, showing again a lower occupancy of nest boxes that are farther from the forest edge for both seasons. We conclude that Swift Parrots favor nest boxes that are along the edge of the forest because of the decreasing probability of occupancy as the distance increased from the forest edge, which could be because of resource availability and nesting preferences. The permanent boxes (those that remained in 2019) may have been taken over by competitor species, the Common Starling and the Tree Martin, because of the significantly lower Swift Parrot occupancy.</p>
+</section>
+</section>
+<section id="problem-4.-affective-and-exploratory-visualizations" class="level1">
+<h1>Problem 4. Affective and exploratory visualizations</h1>
+<section id="a.-comparing-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="a.-comparing-visualizations">a. Comparing visualizations</h2>
+<ul>
+<li><p>My visualizations are different to each other in the way of their immediate visual contrast, where my affective visualization is creative and my exploratory visualization is very straight forward. My affective visualization involves more predictor variables (temperature, shoe type), instead just being on the phone.</p></li>
+<li><p>My visualizations are similar because they both show the median, first quantile, third quartile, and maximum and minimum.</p></li>
+<li><p>Because I had more data by the time I was working on homework 3, I have a lot more information in my affective visualization. I noticed between both that I tend to walk faster when I talk on the phone, and in my affective visualization type of shoe and temperature didn’t have that much of an impact on the time I took. My median for the time I take to walk to class (when I am on the phone) dropped on my affective visualization compared to the exploratory, and there was a much bigger range from 18-23 instead of 20-21. My range also expanded for when I was not on the phone from 15-23 instead of 16-19. The exploratory visualization, even though there are limited data points, clearly shows that it took me longer to walk to class when I was on the phone, whereas the affective visualization shows a less obvious trend.</p></li>
+<li><p>I initially was only going to do one shoe and add on both sets of data in different colors, but my peer reviewers (Ellie and Tanveer) suggested that I do two different shoes. They also said it looked a little busy with the pattern of the shoe so I decided to just have a solid background. They said it would be beneficial and more informative to add more variables, so I added an icon for each data point that represented my shoe type, and it’s color represented the temperature that day. They agreed with what An suggested about incorporating the first and third quantiles in addition to the median, minimum, maximum. I did this by adding gaps in the shoe for each quantile (consistent with a clipart-esque design), and putting in dark lines for where the median, minimum, and maximum are.</p></li>
+</ul>
+</section>
+<section id="b.-sharing-your-affective-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="b.-sharing-your-affective-visualization">b. Sharing your affective visualization</h2>
+<p>I was present during week 10 of workshop.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
