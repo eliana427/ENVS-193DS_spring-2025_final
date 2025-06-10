@@ -1,7 +1,7 @@
 ---
 title: "Final - ENVS 193DS"
 author: "Eliana Shandalov"
-date: "June 3, 2025"
+date: "June 10, 2025"
 format:
   html:
     toc: true # use this to display a table of contents
@@ -11,8 +11,8 @@ execute:
 ---
 
 Link to GitHub repo: https://github.com/eliana427/ENVS-193DS_spring-2025_final.git
-```{r message=FALSE, echo=FALSE}
-# exculde from rendered document
+```{r}
+# reading in packages
 library(tidyverse)
 library(janitor)
 library(lubridate)
@@ -21,6 +21,8 @@ library(scales)
 library(ggeffects)
 library(MuMIn)
 library(DHARMa)
+
+# reading in data sets
 sst <- read_csv(
   here("data", "SST_update2023.csv"))
 nest_boxes <- read_csv(
@@ -232,89 +234,77 @@ mod_preds_plot <- ggplot() + # create a new object for the plot using ggplot
              alpha = 0.4, # level of see-through the points will be
              color = "blue") + # make the points blue
 
-  geom_ribbon(data = mod_preds, # 
-              aes(x = x,
-                  ymin = conf.low,
-                  ymax = conf.high,
-                  fill = group),
-              alpha = 0.4) +
+  geom_ribbon(data = mod_preds, # add ribbon around lines to show confidence intervals
+              aes(x = x, # x is the edge distance
+                  ymin = conf.low, # lower bound CI
+                  ymax = conf.high, # upper bound CI
+                  fill = group), # fill color by group (season)
+              alpha = 0.4) + # see through-ness of the ribbon
 
-  # Prediction line from model
-  geom_line(data = mod_preds,
-            aes(x = x,
-                y = predicted,
-                color = group),
-            linewidth = 1.2) +
+  geom_line(data = mod_preds, # adding predicted lines
+            aes(x = x, # x is edge distance
+                y = predicted, # y is predicted probability
+                color = group), # color is the season
+            linewidth = 1.2) + # manually setting line thickness
 
-  # Manual color and fill scale
-  scale_color_manual(values = c("2016" = "orange", "2019" = "purple")) +
-  scale_fill_manual(values = c("2016" = "orange", "2019" = "purple")) +
+  scale_color_manual(values = c("2016" = "orange", "2019" = "purple")) + # 2016 line will be orange, 2019 line will be purple
+  scale_fill_manual(values = c("2016" = "orange", "2019" = "purple")) + # fill colors will be orange and purple (ribbons will match lines)
 
-  # Y-axis formatting
-  scale_y_continuous(limits = c(0, 1),
-                     breaks = c(0, 1)) +
-
-  # Theme adjustments
-  theme(
-    panel.grid = element_blank(),
-    panel.background = element_blank(),
-    panel.border = element_rect(color = "grey24", fill = NA, linewidth = 0.5),
-    axis.ticks.length.x = unit(1, "mm"),
-    axis.ticks.length.y = unit(1, "mm")
+  scale_y_continuous(limits = c(0, 1), # y axis will only go from 0 to 1
+                     breaks = c(0, 1)) + # only have tick marks at 0 and 1
+  
+  theme( # customize the look
+    panel.grid = element_blank(), # remove grid
+    panel.background = element_blank(), # remove background
+    axis.ticks.length.x = unit(1, "mm"), # set length of axis ticks on x axis
+    axis.ticks.length.y = unit(1, "mm") # set length of axis ticks on y axis
   ) +
 
-  # Axis labels
-  labs(
-    x = "Edge Distance (m)",
-    y = "Presence of Swift Parrots (yes/no)",
-    color = "Season",
-    fill = "Season"
+  labs( # label axes
+    x = "Edge Distance (m)", # label x axis
+    y = "Presence of Swift Parrots (yes/no)", # label y axis
+    color = "Season", # color based on group, season
+    fill = "Season" # fill color based on season
   )
 
-mod_preds_plot
+mod_preds_plot # show the plot
 ```
 
 ## i. Write a caption for your figure
 
-**Figure 1. Swift Parrots tend to occupy more nest boxes that are closer to the forests for seasons 2016 and 2019, and occupied more next boxes in 2016.** Data from 'A case study of a critically endangered bird' (Stojanovic, Dejan et al. (2021). Do nest boxes breed the target species or its competitors? A case study of a critically endangered bird [Dataset]. Dryad.). Points (blue) represent if Swift Parrots were present (yes = 1, no = 0) and how far they were from the forest edge (unit) (total n = 227). Colors and the shape around the lines represent the 95% confidence interval (orange: 2016, purple: 2019).
-
-
-
-
-
-
-
+**Figure 1. Swift Parrots tend to occupy more nest boxes that are closer to the forests for seasons 2016 and 2019, and occupied more nest boxes in 2016.** Data from 'A case study of a critically endangered bird' (Stojanovic, Dejan et al. (2021). Do nest boxes breed the target species or its competitors? A case study of a critically endangered bird [Dataset]. Dryad.). Points (blue) represent if Swift Parrots were present (yes = 1, no = 0) and how far the nest boxes were from the forest edge (m) (total n = 227). Lines with ribbons represent the model prediction of Swift Parrot nest box occupancy with a 95% confidence interval based on season (orange: 2016, purple: 2019).
 
 ## j.  Calculate model predictions
 
 ```{r}
-mod_preds <- ggpredict(model2,
-                        terms = c("edge_distance [0:900] by = 1", "season")) |> 
-  rename(distance_to_edge = x,
-         season = group)
+mod_preds <- ggpredict(model2, # creating a new object for model predictions using model 2
+                        terms = c("edge_distance [0:900] by = 1", "season")) |> # with the model, use predictors edge distance (0-900m) increasing by increments of 1 and season (2016 or 2019)
+  rename(distance_to_edge = x, # rename x to distance_to_edge
+         season = group) # rename group to season, makes understanding output easier
 
-summary(mod_preds)
+summary(mod_preds) # print summary of output
 
-as.data.frame(mod_preds[mod_preds$distance_to_edge == 900, ])
-as.data.frame(mod_preds[mod_preds$distance_to_edge == 0, ])
+as.data.frame(mod_preds[mod_preds$distance_to_edge == 900, ]) # only show data for 900m
+as.data.frame(mod_preds[mod_preds$distance_to_edge == 0, ]) # only show data for 0m
+
+# makes it easier to see which data to focus on in interpretation
 ```
 
 ## k. Interpret your results
 
-As the distance from the forest edge increases (m), the predicted probability of Swift Parrots occupying nest boxes decreased (Figure 1), showing that there is a negative relationship between probability of occupancy and forest edge distance. At the edge of the forest (0 m), the predicted probability of nest box occupancy was 0.48 (95% CI: [0.33, 0.64], $\alpha$ = 0.05) in 2016, and 0.30 (95% CI: [0.18, 0.44], $\alpha$ = 0.05) in 2019, demonstrating how Swift Parrots are more likely to occupy nest boxes near the forest edge, particularly in 2016. At 900 m away from the edge of the forest, the predicted probability of nest box occupancy went down to 0.12 (95% CI: [0.06, 0.24], $\alpha$ = 0.05) in 2016 and to 0.06 (95% CI: [0.03, 0.13], $\alpha$ = 0.05), $\alpha$ = 0.05) in 2019, showing again a lower occupancy of nest boxes that are farther from the forest edge for both seasons. We conclude that Swift Parrots favor nest boxes that are along the edge of the forest because of the decreasing probability of occupancy as the distance increased from the forest edge, which could be because of resource availability and nesting preferences. The permanent boxes (those that remained in 2019) may have been taken over by competitor species, the Common Starling and the Tree Martin, because of the significantly lower Swift Parrot occupancy.
-
+As the distance from the forest edge increases (m), the predicted probability of Swift Parrots occupying nest boxes decreased (Figure 1), showing that there is a negative relationship between probability of occupancy and forest edge distance. At the edge of the forest (0 m), the predicted probability of nest box occupancy was 0.48 (95% CI: [0.33, 0.64], $\alpha$ = 0.05) in 2016, and 0.30 (95% CI: [0.18, 0.44], $\alpha$ = 0.05) in 2019, demonstrating how Swift Parrots are more likely to occupy nest boxes near the forest edge, particularly in 2016. At 900 m away from the edge of the forest, the predicted probability of nest box occupancy went down to 0.12 (95% CI: [0.06, 0.24], $\alpha$ = 0.05) in 2016 and to 0.06 (95% CI: [0.03, 0.13], $\alpha$ = 0.05) in 2019, showing again a lower occupancy of nest boxes that are farther from the forest edge for both seasons. We conclude that Swift Parrots favor nest boxes that are closer to the edge of the forest because of the decreasing probability of occupancy as the distance increased from the forest edge, which could be because of resource availability and selective nesting preferences. The permanent boxes (those that remained in 2019) may have been taken over by competitor species, the Common Starling and the Tree Martin, because of the significantly lower Swift Parrot occupancy.
 
 # Problem 4. Affective and exploratory visualizations
 
 ## a. Comparing visualizations
 
-- My visualizations are different to each other in the way of their immediate visual contrast, where my affective visualization is creative and my exploratory visualization is very straight forward. My affective visualization involves more predictor variables (temperature, shoe type), instead just being on the phone.
+- My visualizations are different to each other because of their obvious visual contrast, where my affective visualization is creative and my exploratory visualization is very straight forward. My affective visualization involves more predictor variables (temperature, shoe type), instead just being on the phone or not.
 
-- My visualizations are similar because they both show the median, first quantile, third quartile, and maximum and minimum.
+- My visualizations are similar because they both show the median, first quantile, third quantile, and maximum and minimum.
 
-- Because I had more data by the time I was working on homework 3, I have a lot more information in my affective visualization. I noticed between both that I tend to walk faster when I talk on the phone, and in my affective visualization type of shoe and temperature didn't have that much of an impact on the time I took. My median for the time I take to walk to class (when I am on the phone) dropped on my affective visualization compared to the exploratory, and there was a much bigger range from 18-23 instead of 20-21. My range also expanded for when I was not on the phone from 15-23 instead of 16-19. The exploratory visualization, even though there are limited data points, clearly shows that it took me longer to walk to class when I was on the phone, whereas the affective visualization shows a less obvious trend.
+- Because I had more data by the time I was working on homework 3, I have a lot more information in my affective visualization. I noticed between both that I tend to walk slower when I talk on the phone, and in my affective visualization, the type of shoe and temperature didn't have that much of an impact on the time I took. My median for the time I take to walk to class (when I am on the phone) dropped on my affective visualization compared to the exploratory, and there was a much bigger range from 18-23 instead of 20-21. My range also expanded for when I was not on the phone from 15-23 instead of 16-19. The exploratory visualization, even though there are limited data points, clearly shows that it took me longer to walk to class when I was on the phone, whereas the affective visualization shows a less obvious trend.
 
-- I initially was only going to do one shoe and add on both sets of data in different colors, but my peer reviewers (Ellie and Tanveer) suggested that I do two different shoes. They also said it looked a little busy with the pattern of the shoe so I decided to just have a solid background. They said it would be beneficial and more informative to add more variables, so I added an icon for each data point that represented my shoe type, and it's color represented the temperature that day. They agreed with what An suggested about incorporating the first and third quantiles in addition to the median, minimum, maximum. I did this by adding gaps in the shoe for each quantile (consistent with a clipart-esque design), and putting in dark lines for where the median, minimum, and maximum are.
+- I initially was only going to draw one shoe and add on both sets of data in different colors, but my peer reviewers (Ellie and Tanveer) suggested that I do two different shoes. They also said it looked a little busy with the pattern of the shoe so I decided to just have a solid background. They said it would be beneficial and more informative to add more variables, so I added an icon for each data point that represented my shoe type, and it's color represented the temperature that day. They agreed with what An suggested about incorporating the first and third quantiles in addition to the median, minimum, maximum. I did this by adding gaps in the shoe for each quantile (consistent with a clipart-esque design), and putting in dark lines for where the median, minimum, and maximum are.
 
 ## b. Sharing your affective visualization
 
