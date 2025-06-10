@@ -149,19 +149,19 @@ nest_boxes_clean <- nest_boxes |> # store sst as new object called sst_clean
 e. Run the models
 ```{r}
 # model 1, null model: where any species is present
-model1 <- lm(sp ~ 1,
+model1 <- glm(sp ~ 1,
                 data = nest_boxes_clean)
 
 # model 2, saturated model: where edge distance and season impact whether any species is present
-model2 <- lm(sp ~ edge_distance + season,
+model2 <- glm(sp ~ edge_distance + season,
                 data = nest_boxes_clean)
 
 # model 3, one predictor: where edge distance impacts if swift parrots are present
-model3 <- lm(sp ~ edge_distance,
+model3 <- glm(sp ~ edge_distance,
                 data = nest_boxes_clean)
 
 # model 4, other predictor: where season impacts if swift parrots are present
-model4 <- lm(sp ~ season,
+model4 <- glm(sp ~ season,
                 data = nest_boxes_clean)
 
 ```
@@ -169,6 +169,7 @@ model4 <- lm(sp ~ season,
 f. Check the diagnostics
 
 ```{r}
+
 # show model 1
 plot(
   simulateResiduals(model1)
@@ -193,6 +194,7 @@ plot(
 g. Select the best model
 
 ```{r}
+# run AIC comparison to find out which model is best to represent data
 AICc(model1,
      model2,
      model3,
@@ -200,6 +202,86 @@ AICc(model1,
   arrange(AICc)
 ```
 
-The best model as determeined by Akaike's Information Criterion (AIC) is the one that compares if Swift Parrots are present depending on distance to forest edge and season. 
+The best model as determined by Akaike's Information Criterion (AIC) is the one that compares if Swift Parrots are present depending on distance to forest edge and season (saturated model, all predictor variables included).
 
-saturated model, the one that uses all the predictors: season and distance to forest edge.
+h. Visualize the model predictions
+```{r}
+
+# working on it, might not need
+par(mfrow = c(2,2))
+plot(model1, which = 1, main = "Model 1")
+plot(model2, which = 1, main = "Model 2")
+plot(model3, which = 1, main = "Model 3")
+plot(model4, which = 1, main = "Model 4")
+
+```
+
+```{r}
+mod_preds <- ggpredict(model2,
+                        terms = c("edge_distance [7:1072] by = 1", "season"))
+
+mod_preds_plot <- ggplot() +
+
+  geom_point(data = nest_boxes_clean,
+             aes(x = edge_distance,
+                 y = sp),
+             size = 3,
+             alpha = 0.4,
+             color = "blue") +
+
+  # Confidence ribbon from model predictions
+  geom_ribbon(data = mod_preds,
+              aes(x = x,
+                  ymin = conf.low,
+                  ymax = conf.high,
+                  fill = group),
+              alpha = 0.4) +
+
+  # Prediction line from model
+  geom_line(data = mod_preds,
+            aes(x = x,
+                y = predicted,
+                color = group),
+            linewidth = 1.2) +
+
+  # Manual color and fill scale
+  scale_color_manual(values = c("2016" = "orange", "2019" = "purple")) +
+  scale_fill_manual(values = c("2016" = "orange", "2019" = "purple")) +
+
+  # Y-axis formatting
+  scale_y_continuous(limits = c(0, 1),
+                     breaks = c(0, 1)) +
+
+  # Theme adjustments
+  theme(
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    panel.border = element_rect(color = "grey24", fill = NA, linewidth = 0.5),
+    axis.ticks.length.x = unit(1, "mm"),
+    axis.ticks.length.y = unit(1, "mm")
+  ) +
+
+  # Axis labels
+  labs(
+    x = "Edge Distance",
+    y = "Presence of Swift Parrot",
+    color = "Season",
+    fill = "Season"
+  )
+
+mod_preds_plot
+```
+
+i. Write a caption for your figure
+
+**Figure 1. Swift Parrots tend to occupy more nest boxes that are closer to the forests for seasons 2016 and 2019, and occupied more next boxes in 2016.** Data from 'A case study of a critically endangered bird' (Stojanovic, Dejan et al. (2021). Do nest boxes breed the target species or its competitors? A case study of a critically endangered bird [Dataset]. Dryad.). Points (blue) represent if Swift Parrots were present (yes = 1, no = 0) and how far they were from the forest edge (unit) (total n = 227). Colors and the shape around the lines represent the 95% confidence interval (orange: 2016, purple: 2019).
+
+j.  Calculate model predictions
+**not sure if this is actually what i need here**
+```{r}
+summary(model2)
+
+gtsummary::tbl_regression(model2,
+                         exponentiate = TRUE)
+```
+
